@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+	<modules>
+		<Liana_CEMImport>
+			<active>true</active>
+			<codePool>local</codePool>
+		</Liana_CEMImport>
+		</modules>
+</config>
