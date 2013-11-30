@@ -64,7 +64,7 @@ class Liana_CEMImport_Model_Order extends Mage_Core_Model_Abstract {
 
             $details = $this->getOrderDetails($item);
 
-            $order['events'] = array_merge($order['events'], $detail);
+            $order['events'] = array_merge($order['events'], $details);
 
  			$orders[] = $order;
         }
