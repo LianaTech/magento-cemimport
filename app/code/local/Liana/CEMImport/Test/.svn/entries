@@ -1,46 +1,0 @@
-10
-
-dir
-22
-https://svn.viidakko.fi/magento-cemimport/trunk/app/code/local/Liana/CEMImport/Test
-https://svn.viidakko.fi/magento-cemimport
-
-
-
-2013-11-18T13:36:07.862849Z
-14
-hung
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-d6923cae-1707-480e-af05-f1402378df0c
-
-data
-dir
-
-Block
-dir
-
-Helper
-dir
-
-Model
-dir
-
-Controller
-dir
-
-Config
-dir
-
