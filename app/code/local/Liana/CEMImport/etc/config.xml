@@ -11,8 +11,11 @@
             names, with directory separators replaced by underscores
         -->
         <Liana_CEMImport>
-            <!-- The version of our module, starting at 0.0.1 -->
-            <version>0.0.1</version>
+            <!-- 
+                The version of our module, starting at 0.0.1. 
+                This value affects the mysql4-install-0.0.1.php
+            -->
+            <version>0.0.1/version>
         </Liana_CEMImport>
     </modules>
      <global>
@@ -26,8 +29,38 @@
         <models>
             <cemimport>
                 <class>Liana_CEMImport_Model</class>
+                <resourceModel>cemimport_mysql4</resourceModel>
             </cemimport>
+            <cemimport_mysql4>
+                <class>Liana_CEMImport_Model_Mysql4</class>
+                <entities>
+                    <cemimport>
+                        <table>cemimport</table>
+                    </cemimport>
+                </entities>
+            </cemimport_mysql4>
         </models>
+        <!--resources-->
+        <resources>
+             <cemimport_setup>
+                <setup>
+                    <module>Liana_CEMImport</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </cemimport_setup>
+            <cemimport_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </cemimport_write>
+            <cemimport_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </cemimport_read>
+        </resources>
     </global>
      <phpunit>
         <suite>
@@ -72,12 +105,12 @@
             </Liana_CEMImport>
         </routers>
     </admin>
-    <!-- crontab--->
+     <!--crontab-->
      <crontab>
         <jobs>
             <Liana_CEMImport>
                 <schedule>
-                    <cron_expr>*/1 * * * *</cron_expr>
+                    <cron_expr>*/2 * * * *</cron_expr>
                 </schedule>
                 <run>
                     <model>cemimport/observer::exportOrders</model>
@@ -85,4 +118,5 @@
             </Liana_CEMImport>
         </jobs>
     </crontab>
+      <!--crontab-->
 </config>
