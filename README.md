@@ -7,9 +7,11 @@ Magento CEMImport Extension for importing data to Liana CEM
 Usage
 =====
 
-1. Copy/upload app/code/local/Liana/CEMimport to your [magento_folder]/app/code/local/
+1. Copy/upload app/code/local/Liana/CEMImport to your [magento_folder]/app/code/local/
 
-2. Open Magento's settings page and open the Liana CEM Import section and enter these required fields:
+2. Copy/upload app/etc/modules/Liana_CEMImport.xml to your [magento_folder]/app/etc/modules/
+
+3. Open Magento's settings page and open the Liana CEM Import section and enter these required fields:
 	- API USER
 	- API KEY
 	- API URL
@@ -17,7 +19,7 @@ Usage
 Afterward click "Save config" to finnished this step
 (If when you open Liana CEM Import section and see the 404 error, you may need to logout and login to Magento again)
 
-3. Set up cronjob to excute CEM Import module in every 2 minutes
+4. Set up cronjob to excute CEM Import module in every 2 minutes
 	- */2 * * * * /usr/bin/php -f /local/path/to/magento/cron.php
-	- OR
+OR
 	- */2 * * * * curl -s -o /dev/null http://www.yoursite.com/absolute/path/to/magento/cron.php
