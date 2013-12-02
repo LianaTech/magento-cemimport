@@ -23,3 +23,9 @@ Afterward click "Save config" to finnished this step
 	- */2 * * * * /usr/bin/php -f /local/path/to/magento/cron.php
 OR
 	- */2 * * * * curl -s -o /dev/null http://www.yoursite.com/absolute/path/to/magento/cron.php
+
+Development
+=====
+
+You have to install [EcomDev PHPUnit](http://www.magentocommerce.com/magento-connect/phpunit-testing-integration.html) in order to run phpunit test
+
