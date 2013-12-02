@@ -89,8 +89,7 @@ class Liana_CEMImport_Model_Order extends Mage_Core_Model_Abstract {
      			$order['events'][] = array(
                     'verb' => 'order',
                     'items' => array(
-                        'order-id' 	 		=> $item->getId(),
-                        'order-number'  	=> $item->getIncrementId(),
+                        'id'  	            => $item->getIncrementId(),
     					'payment-method'	=> $item->getPayment()->getMethodInstance()->getCode(),
     					'delivery-method'	=> $item->getShippingDescription(),
     					'total-price'		=> $item->getSubtotal(),
@@ -131,10 +130,10 @@ class Liana_CEMImport_Model_Order extends Mage_Core_Model_Abstract {
         {
             $row                      = array();
             $row['verb'] 			  = 'order-row';
-            $row['data']['item-name'] = $item->getName();
+            $row['data']['name']      = $item->getName();
 			$row['data']['amount'] 	  = $item->getQtyOrdered();
             $row['data']['price']     = $item->getPrice();
-			$row['data']['row-total'] = $item->getRowTotalInclTax();
+			$row['data']['total'] = $item->getRowTotalInclTax();
             $order_rows[] = $row;
         }
         return $order_rows;
