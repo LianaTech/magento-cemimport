@@ -77,7 +77,7 @@ class Liana_CEMImport_Model_Order extends Mage_Core_Model_Abstract {
 
                 $order['events'][] = array(
                     'verb' => 'contact',
-                    'data' => array(
+                    'items' => array(
                         'first-name' => $item->getCustomerFirstname(),
                         'last-name'  => $item->getCustomerLastname(),
     					'street'	 => $billing_address->getStreetFull(),
@@ -88,7 +88,7 @@ class Liana_CEMImport_Model_Order extends Mage_Core_Model_Abstract {
                 
      			$order['events'][] = array(
                     'verb' => 'order',
-                    'data' => array(
+                    'items' => array(
                         'order-id' 	 		=> $item->getId(),
                         'order-number'  	=> $item->getIncrementId(),
     					'payment-method'	=> $item->getPayment()->getMethodInstance()->getCode(),
