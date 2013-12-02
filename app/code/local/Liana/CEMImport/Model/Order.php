@@ -63,7 +63,7 @@ class Liana_CEMImport_Model_Order extends Mage_Core_Model_Abstract {
         $data = array();
 
         if(!empty($collection)){
-            $channel_id = 1;
+            $channel_id = 'ecs';//ecs : ecommerce
            
             $data['channel'] = $channel_id;
             $orders = array();

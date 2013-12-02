@@ -59,7 +59,7 @@ class Liana_CEMImport_Model_RestClient {
 			'Content-Type: application/json',
 			"Content-MD5: {$md5}",
 			"Date: {$timestamp}",
-			"Authorization: LMUI {$user_id}:{$signature}"
+			"Authorization: LCUI {$user_id}:{$signature}"
 		));
 		curl_setopt($ch, CURLOPT_USERAGENT, 'PHP-LMAPI');
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);

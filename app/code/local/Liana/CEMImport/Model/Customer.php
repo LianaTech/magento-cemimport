@@ -10,7 +10,7 @@ class Liana_CEMImport_Model_Customer extends Mage_Core_Model_Abstract {
 	public function getCustomerList(){
 		$collection = $this->getCustomerCollection();
 		//need to be changed, it should be retrieved from settings
-        $channel_id = 1;
+        $channel_id = 'ecs';//ecs: ecommerce
         $data = array();
         $data['channel'] = $channel_id;
 
