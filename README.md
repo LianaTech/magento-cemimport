@@ -3,6 +3,7 @@ magento-cemimport
 
 Magento CEMImport Extension for importing data to Liana CEM
 
+* Currently, this module will import customers and orders data from Magento to CEM
 
 Usage
 =====
