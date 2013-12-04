@@ -8,7 +8,7 @@ Magento CEMImport Extension for importing data to Liana CEM
 Usage
 =====
 
-1. Copy/upload app/code/local/Liana/CEMImport to your [magento_folder]/app/code/local/
+1. Copy/upload app/code/local/Liana to your [magento_folder]/app/code/local/
 
 2. Copy/upload app/etc/modules/Liana_CEMImport.xml to your [magento_folder]/app/etc/modules/
 
