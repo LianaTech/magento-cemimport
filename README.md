@@ -26,7 +26,7 @@ Afterward click "Save config" to finnished this step
 OR
 	- */2 * * * * curl -s -o /dev/null http://www.yoursite.com/absolute/path/to/magento/cron.php
 
-#Run importing process directly from command line
+###Run importing process directly from command line
 
 You can also run the import process from command line by execute:
 php -f /shell/cemimport-cli.php
