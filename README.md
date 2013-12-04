@@ -21,9 +21,10 @@ Usage
 	- API VERSION
 
 Afterward click "Save config" to finnished this step
-(If when you open Liana CEM Import section and see the 404 error, you may need to logout and login to Magento again)
 
-5. Set up cronjob to excute CEM Import module in every 2 minutes
+* If when you open Liana CEM Import section and see the 404 error, you need to logout and login to Magento again
+
+5. Set up cronjob to execute CEM Import module in every 2 minutes
 	- */2 * * * * /usr/bin/php -f /local/path/to/magento/cron.php
 OR
 	- */2 * * * * curl -s -o /dev/null http://www.yoursite.com/absolute/path/to/magento/cron.php
@@ -33,7 +34,7 @@ OR
 You can also run the import process from command line by execute:
 php -f /shell/cemimport-cli.php
 
-It will automatically export customers and orders to CEM once (each time 1000 rows)
+It will automatically export customers and orders to CEM once (maximum 1000 rows per time)
 
 Development
 =====
