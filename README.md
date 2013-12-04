@@ -19,7 +19,6 @@ Usage
 	- API KEY
 	- API URL
 	- API VERSION
-
 Afterward click "Save config" to finnished this step (If when you open Liana CEM Import section and see the 404 error, you need to logout and login to Magento again)
 
 5. Set up cronjob to execute CEM Import module in every 2 minutes
