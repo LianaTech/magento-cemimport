@@ -108,14 +108,22 @@
      <!--crontab-->
      <crontab>
         <jobs>
-            <Liana_CEMImport>
+             <Liana_CEMImport_Orders>
                 <schedule>
                     <cron_expr>*/2 * * * *</cron_expr>
                 </schedule>
                 <run>
                     <model>cemimport/observer::exportOrders</model>
                 </run>
-            </Liana_CEMImport>
+            </Liana_CEMImport_Orders>
+            <Liana_CEMImport_Customers>
+                <schedule>
+                    <cron_expr>*/2 * * * *</cron_expr>
+                </schedule>
+                <run>
+                    <model>cemimport/observer::exportCustomers</model>
+                </run>
+            </Liana_CEMImport_Customers>
         </jobs>
     </crontab>
       <!--crontab-->

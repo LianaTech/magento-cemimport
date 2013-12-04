@@ -8,7 +8,7 @@
   </tabs>   
   <sections>
     <cemimport translate="label">
-      <label>CEMImport</label>
+      <label>CEM Import</label>
       <tab>cemimport</tab>
       <frontend_type>text</frontend_type>
       <sort_order>1000</sort_order>

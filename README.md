@@ -11,7 +11,9 @@ Usage
 
 2. Copy/upload app/etc/modules/Liana_CEMImport.xml to your [magento_folder]/app/etc/modules/
 
-3. Open Magento's settings page and open the Liana CEM Import section and enter these required fields:
+3. Copy/upload shell/cemimport-cli.php to your [magento_folder]/shell/
+
+4. Open Magento's settings page (System/Configuration/Liana CEM Import) and open the Liana CEM Import section and enter these required fields:
 	- API USER
 	- API KEY
 	- API URL
@@ -19,10 +21,17 @@ Usage
 Afterward click "Save config" to finnished this step
 (If when you open Liana CEM Import section and see the 404 error, you may need to logout and login to Magento again)
 
-4. Set up cronjob to excute CEM Import module in every 2 minutes
+5. Set up cronjob to excute CEM Import module in every 2 minutes
 	- */2 * * * * /usr/bin/php -f /local/path/to/magento/cron.php
 OR
 	- */2 * * * * curl -s -o /dev/null http://www.yoursite.com/absolute/path/to/magento/cron.php
+
+#Run importing process directly from command line
+
+You can also run the import process from command line by execute:
+php -f /shell/cemimport-cli.php
+
+It will automatically export customers and orders to CEM once (each time 1000 rows)
 
 Development
 =====

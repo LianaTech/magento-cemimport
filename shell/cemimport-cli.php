@@ -21,21 +21,8 @@ class Liana_Shell_CEMImport extends Mage_Shell_Abstract
     }
     // Shell script point of entry
     public function run() {
-        echo "Hello World";
-        $api_user       = Mage::getStoreConfig('cemimport/settings/api_user');
-        $api_key        = Mage::getStoreConfig('cemimport/settings/api_key');
-        $api_url        = Mage::getStoreConfig('cemimport/settings/api_url');
-        $api_version    = Mage::getStoreConfig('cemimport/settings/api_version');
-
-        $restClient = new Liana_CEMImport_Model_RestClient(
-            $api_user, $api_key, $api_url, $api_version
-        );
-
-        $model = new Liana_CEMImport_Model_Order();
-
-        $orderList = $model->getOrderList();
-
-        $restClient->call('import', $orderList);
+        Liana_CEMImport_Model_Observer::getInstance()->exportOrders();
+        Liana_CEMImport_Model_Observer::getInstance()->exportCustomers();
     }
     // Usage instructions
     public function usageHelp()
