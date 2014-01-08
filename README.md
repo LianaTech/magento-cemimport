@@ -17,10 +17,11 @@ Usage
 4. Open Magento's settings page (System/Configuration/Liana CEM Import) and open the Liana CEM Import section and enter these required fields:
 	- API USER
 	- API KEY
-	- API URL
+	- API URL (e.g:http://lianacem.com, it does not need to contain /rest segment or version)
 	- API VERSION
 
   *Afterward click "Save config" to finnished this step (If when you open Liana CEM Import section and see the 404 error, you need to logout and login to Magento again).
+  
 
 5. Set up cronjob to execute CEM Import module in every 2 minutes
 	- */2 * * * * /usr/bin/php -f /local/path/to/magento/cron.php
