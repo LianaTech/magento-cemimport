@@ -51,7 +51,7 @@ class Liana_CEMImport_Model_Customer extends Mage_Core_Model_Abstract {
 
         $data = array();
 
-        if(!empty($collection)){
+        if(!empty($collection) && (intval($collection->getSize())>0)){
             //need to be changed, it should be retrieved from settings
             $channel_id = 'ecs';//ecs : ecommerce
             $data = array();
