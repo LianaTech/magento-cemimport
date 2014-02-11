@@ -15,7 +15,7 @@
                 The version of our module, starting at 0.0.1. 
                 This value affects the mysql4-install-0.0.1.php
             -->
-            <version>0.0.1</version>
+            <version>0.0.2</version>
         </Liana_CEMImport>
     </modules>
      <global>
