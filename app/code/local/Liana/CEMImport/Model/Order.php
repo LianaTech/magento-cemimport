@@ -45,7 +45,7 @@ class Liana_CEMImport_Model_Order extends Mage_Core_Model_Abstract {
 
             if($last_order_id!==$last_item->getId()){
                 $new_cemimport = Mage::getModel('cemimport/cemimport');
-                $new_cemimport->setLastCreatedAtTime($last_updated_at_time);
+                $new_cemimport->setLastUpdatedAtTime($last_updated_at_time);
                 $new_cemimport->setImportType('order');
                 $new_cemimport->setLastRetrievedId((int)$last_item->getId());
                 $new_cemimport->save();

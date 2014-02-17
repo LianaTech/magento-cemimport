@@ -36,7 +36,7 @@ class Liana_CEMImport_Model_Customer extends Mage_Core_Model_Abstract {
 
             if($last_customer_id!==$last_item->getId()){
                 $new_cemimport = Mage::getModel('cemimport/cemimport');
-                $new_cemimport->setLastCreatedAtTime($last_updated_at_time);
+                $new_cemimport->setLastUpdatedAtTime($last_updated_at_time);
                 $new_cemimport->setLastRetrievedId((int)$last_item->getId());
                 $new_cemimport->setImportType('customer');
                 $new_cemimport->save();
