@@ -91,7 +91,7 @@ class Liana_CEMImport_Model_Order extends Mage_Core_Model_Abstract {
                     'verb' => 'order',
                     'items' => array(
                         'id'  	            => $item->getIncrementId(),
-    					'payment-method'	=> $item->getPayment()->getMethodInstance()->getCode(),
+    			        'payment-method'    => $item->getPayment()->getMethodInstance()->getCode(),
     					'delivery-method'	=> $item->getShippingDescription(),
     					'total-price'		=> $item->getSubtotal(),
                         'currency' 		    => $item->getOrderCurrencyCode(),
