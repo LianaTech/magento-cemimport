@@ -131,10 +131,10 @@ class Liana_CEMImport_Model_Order extends Mage_Core_Model_Abstract {
         {
             $row                      = array();
             $row['verb'] 			  = 'orderrow';
-            $row['data']['name']      = $item->getName();
-			$row['data']['amount'] 	  = $item->getQtyOrdered();
-            $row['data']['price']     = $item->getPrice();
-			$row['data']['total'] = $item->getRowTotalInclTax();
+            $row['items']['name']      = $item->getName();
+			$row['items']['amount'] 	  = $item->getQtyOrdered();
+            $row['items']['price']     = $item->getPrice();
+			$row['items']['total'] = $item->getRowTotalInclTax();
             $order_rows[] = $row;
         }
         return $order_rows;
