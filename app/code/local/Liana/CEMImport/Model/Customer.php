@@ -69,8 +69,8 @@ class Liana_CEMImport_Model_Customer extends Mage_Core_Model_Abstract {
                     'verb' => 'contacts',
                     'items' => array(
                         'id'         => $obj->getId(),
-                        'first-name' => $obj->getFirstname(),
-                        'last-name'  => $obj->getLastname(),
+                        'firstname'  => $obj->getFirstname(),
+                        'lastname'   => $obj->getLastname(),
                         'email'      => $obj->getEmail()
                     )
                 );

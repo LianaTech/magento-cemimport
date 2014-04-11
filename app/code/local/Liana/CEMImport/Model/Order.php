@@ -79,8 +79,8 @@ class Liana_CEMImport_Model_Order extends Mage_Core_Model_Abstract {
                 $order['events'][] = array(
                     'verb' => 'contact',
                     'items' => array(
-                        'first-name' => $item->getCustomerFirstname(),
-                        'last-name'  => $item->getCustomerLastname(),
+                        'firstname' => $item->getCustomerFirstname(),
+                        'lastname'  => $item->getCustomerLastname(),
     					'street'	 => $billing_address->getStreetFull(),
     					'zip'		 => $billing_address->getPostcode(),
     					'city'		 => $billing_address->getCity()
@@ -91,9 +91,9 @@ class Liana_CEMImport_Model_Order extends Mage_Core_Model_Abstract {
                     'verb' => 'order',
                     'items' => array(
                         'id'  	            => $item->getIncrementId(),
-    					'payment-method'	=> $item->getPayment()->getMethodInstance()->getCode(),
-    					'delivery-method'	=> $item->getShippingDescription(),
-    					'total-price'		=> $item->getSubtotal(),
+    					'paymentmethod'	    => $item->getPayment()->getMethodInstance()->getCode(),
+    					'deliverymethod'	=> $item->getShippingDescription(),
+    					'totalprice'		=> $item->getSubtotal(),
                         'currency' 		    => $item->getOrderCurrencyCode(),
     					'status'            => $item->getStatus(),
                         'created'           => $item->getCreatedAt(),
@@ -130,7 +130,7 @@ class Liana_CEMImport_Model_Order extends Mage_Core_Model_Abstract {
         foreach($order->getItemsCollection() as $item)
         {
             $row                      = array();
-            $row['verb'] 			  = 'order-row';
+            $row['verb'] 			  = 'orderrow';
             $row['data']['name']      = $item->getName();
 			$row['data']['amount'] 	  = $item->getQtyOrdered();
             $row['data']['price']     = $item->getPrice();
