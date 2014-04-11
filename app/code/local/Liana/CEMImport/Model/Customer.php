@@ -66,11 +66,11 @@ class Liana_CEMImport_Model_Customer extends Mage_Core_Model_Abstract {
                 $customer = array();
                 $customer['identity'] = array('email'=> $model->getEmail());
                 $customer['events'][] = array(
-                    'verb' => 'contacts',
+                    'verb' => 'contact',
                     'items' => array(
                         'id'         => $obj->getId(),
-                        'firstname'  => $obj->getFirstname(),
-                        'lastname'   => $obj->getLastname(),
+                        'first-name' => $obj->getFirstname(),
+                        'last-name'  => $obj->getLastname(),
                         'email'      => $obj->getEmail()
                     )
                 );
