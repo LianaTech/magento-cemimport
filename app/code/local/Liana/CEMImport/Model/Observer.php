@@ -11,6 +11,7 @@ class Liana_CEMImport_Model_Observer
         $api_url        = Mage::getStoreConfig('cemimport/settings/api_url');
         $api_version    = Mage::getStoreConfig('cemimport/settings/api_version');
         
+        $api_url = trim($api_url);
         $api_url = rtrim($api_url,"/");#remove slash at the end of url
         
         $this->_restClient = new Liana_CEMImport_Model_RestClient(
