@@ -81,9 +81,9 @@ class Liana_CEMImport_Model_Order extends Mage_Core_Model_Abstract {
                     'items' => array(
                         'first-name' => $item->getCustomerFirstname(),
                         'last-name'  => $item->getCustomerLastname(),
-    					'street'	 => $billing_address->getStreetFull(),
-    					'zip'		 => $billing_address->getPostcode(),
-    					'city'		 => $billing_address->getCity()
+    			'street'     => $billing_address->getStreetFull(),
+    			'zip'	     => $billing_address->getPostcode(),
+    			'city'       => $billing_address->getCity()
                     )
                 );
                 
@@ -91,11 +91,11 @@ class Liana_CEMImport_Model_Order extends Mage_Core_Model_Abstract {
                     'verb' => 'order',
                     'items' => array(
                         'id'  	            => $item->getIncrementId(),
-    			        'payment-method'    => $item->getPayment()->getMethodInstance()->getCode(),
-    					'delivery-method'	=> $item->getShippingDescription(),
-    					'total-price'		=> $item->getSubtotal(),
-                        'currency' 		    => $item->getOrderCurrencyCode(),
-    					'status'            => $item->getStatus(),
+    			'payment-method'    => $item->getPayment()->getMethodInstance()->getCode(),
+    			'delivery-method'   => $item->getShippingDescription(),
+    			'total-price'	    => $item->getSubtotal(),
+                        'currency'          => $item->getOrderCurrencyCode(),
+    			'status'            => $item->getStatus(),
                         'created'           => $item->getCreatedAt(),
                         'modified'          => $item->getUpdatedAt(),
                     )
