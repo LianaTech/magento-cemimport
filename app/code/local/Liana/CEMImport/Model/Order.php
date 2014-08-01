@@ -81,9 +81,9 @@ class Liana_CEMImport_Model_Order extends Mage_Core_Model_Abstract {
                     'items' => array(
                         'first-name' => $item->getCustomerFirstname(),
                         'last-name'  => $item->getCustomerLastname(),
-    			'street'     => $billing_address->getStreetFull(),
-    			'zip'	     => $billing_address->getPostcode(),
-    			'city'       => $billing_address->getCity()
+    			        'street'     => $billing_address->getStreetFull(),
+    			        'zip'	     => $billing_address->getPostcode(),
+    			        'city'       => $billing_address->getCity()
                     )
                 );
                 
