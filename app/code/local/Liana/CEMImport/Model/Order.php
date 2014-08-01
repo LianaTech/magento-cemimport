@@ -91,11 +91,11 @@ class Liana_CEMImport_Model_Order extends Mage_Core_Model_Abstract {
                     'verb' => 'order',
                     'items' => array(
                         'id'  	            => $item->getIncrementId(),
-    			'payment-method'    => $item->getPayment()->getMethodInstance()->getCode(),
-    			'delivery-method'   => $item->getShippingDescription(),
-    			'total-price'	    => $item->getSubtotal(),
+    			        'payment-method'    => $item->getPayment()->getMethodInstance()->getCode(),
+    			        'delivery-method'   => $item->getShippingDescription(),
+    			        'total-price'	    => $item->getSubtotal(),
                         'currency'          => $item->getOrderCurrencyCode(),
-    			'status'            => $item->getStatus(),
+    			        'status'            => $item->getStatus(),
                         'created'           => $item->getCreatedAt(),
                         'modified'          => $item->getUpdatedAt(),
                     )
@@ -132,6 +132,8 @@ class Liana_CEMImport_Model_Order extends Mage_Core_Model_Abstract {
             $row                       = array();
             $row['verb'] 			   = 'orderrow';
             $row['items']['order-id']  = $order->getIncrementId();
+            $row['items']['product-id']= $item->getID();
+            $row['items']['sku']       = $item->getSku();
             $row['items']['name']      = $item->getName();
             $row['items']['amount']    = $item->getQtyOrdered();
             $row['items']['price']     = $item->getPrice();
