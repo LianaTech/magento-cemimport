@@ -160,7 +160,6 @@ class Liana_CEMImport_Test_Model_Order extends EcomDev_PHPUnit_Test_Case {
 		  ),
 		));
 
-		echo "\n$jsonOrderList\n";
         // Check that two json objects are equal or not
         $this->assertJsonStringEqualsJsonString(
             $data,

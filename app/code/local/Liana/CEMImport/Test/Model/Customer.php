@@ -39,7 +39,6 @@ class Liana_CEMImport_Test_Model_Customer extends EcomDev_PHPUnit_Test_Case {
 		  ),
 		));
 
-		echo "\n".$jsonCustomerList."\n";
         // Check that two json objects are equal or not
         $this->assertJsonStringEqualsJsonString(
             $data,
