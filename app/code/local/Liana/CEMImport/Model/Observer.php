@@ -9,13 +9,14 @@ class Liana_CEMImport_Model_Observer
         $api_user       = Mage::getStoreConfig('cemimport/settings/api_user');
         $api_key        = Mage::getStoreConfig('cemimport/settings/api_key');
         $api_url        = Mage::getStoreConfig('cemimport/settings/api_url');
-        $api_version    = Mage::getStoreConfig('cemimport/settings/api_version');
+		$api_version    = Mage::getStoreConfig('cemimport/settings/api_version');
+		$api_realm		= Mage::getStoreConfig('cemimport/settings/api_realm');
         
         $api_url = trim($api_url);
         $api_url = rtrim($api_url,"/");#remove slash at the end of url
         
         $this->_restClient = new Liana_CEMImport_Model_RestClient(
-            $api_user, $api_key, $api_url, $api_version
+            $api_user, $api_key, $api_url, $api_version, $api_realm
         );
     }
     public static function getInstance(){
@@ -35,8 +36,9 @@ class Liana_CEMImport_Model_Observer
         try{
             $restClient = Liana_CEMImport_Model_Observer::getInstance()->getRestClient();
 
-            if(!empty($orderList)){
-                $restClient->call('import', $orderList);
+            if(! empty($orderList)) {
+				$restClient->call('import', $orderList);
+				$model->updateLastRetrieved();
             }
         } catch( Exception $ex){
             Mage::Log("magento-cemimport:".$ex->getMessages());
@@ -50,6 +52,7 @@ class Liana_CEMImport_Model_Observer
             $restClient = Liana_CEMImport_Model_Observer::getInstance()->getRestClient();
             if(!empty($customerList)){
                 $restClient->call('import', $customerList);
+				$model->updateLastRetrieved();
             }
         } catch( Exception $ex){
             Mage::Log("magento-cemimport:".$ex->getMessages());

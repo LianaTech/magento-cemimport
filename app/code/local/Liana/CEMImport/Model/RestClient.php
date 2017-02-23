@@ -18,11 +18,14 @@ class Liana_CEMImport_Model_RestClient {
 
 	protected $api_version;
 
-	public function __construct($api_user, $api_key, $api_url, $api_version) {
+	protected $api_realm;
+
+	public function __construct($api_user, $api_key, $api_url, $api_version, $api_realm = 'LCUI') {
 		$this->api_user = $api_user;
 		$this->api_key = $api_key;
 		$this->api_url = $api_url;
 		$this->api_version = intval($api_version);
+		$this->api_realm = $api_realm;
 	}
 
 	public function call($method, $args = array()) {
@@ -59,7 +62,7 @@ class Liana_CEMImport_Model_RestClient {
 			'Content-Type: application/json',
 			"Content-MD5: {$md5}",
 			"Date: {$timestamp}",
-			"Authorization: LCUI {$user_id}:{$signature}"
+			"Authorization: {$this->api_realm} {$user_id}:{$signature}"
 		));
 		curl_setopt($ch, CURLOPT_USERAGENT, 'PHP-LMAPI');
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);

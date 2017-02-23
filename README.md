@@ -19,6 +19,7 @@ Usage
 	- API KEY
 	- API URL (e.g:http://t.lianacem.com, it does not need to contain /rest segment or version)
 	- API VERSION
+	- API REALM
 
   *Afterward click "Save config" to finnished this step (If when you open Liana CEM Import section and see the 404 error, you need to logout and login to Magento again).
   

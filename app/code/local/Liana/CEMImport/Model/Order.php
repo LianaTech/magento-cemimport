@@ -42,18 +42,27 @@ class Liana_CEMImport_Model_Order extends Mage_Core_Model_Abstract {
         $last_updated_at_time = $last_item->getData('updated_at');
 
         if(!is_null($last_updated_at_time)){
-
             if($last_order_id!==$last_item->getId()){
-                $new_cemimport = Mage::getModel('cemimport/cemimport');
-                $new_cemimport->setLastUpdatedAtTime($last_updated_at_time);
-                $new_cemimport->setImportType('order');
-                $new_cemimport->setLastRetrievedId((int)$last_item->getId());
-                $new_cemimport->save();
+				$this->last_updated_at_time = $last_updated_at_time;
+				$this->last_item_id = (int)$last_item->getId();
             }
         }
 
         return $collection;
-    }
+	}
+
+	public function updateLastRetrieved() {
+		if (! isset($this->last_updated_at_time) || ! isset($this->last_item_id)) {
+			return false;
+		}
+		$new_cemimport = Mage::getModel('cemimport/cemimport');
+		$new_cemimport->setLastUpdatedAtTime($this->last_updated_at_time);
+		$new_cemimport->setLastRetrievedId($this->last_item_id);
+		$new_cemimport->setImportType('order');
+		$new_cemimport->save();
+
+		return true;
+	}
     
     /**
     *   Retrieve a order list from database and convert it into proper array structure
@@ -69,10 +78,10 @@ class Liana_CEMImport_Model_Order extends Mage_Core_Model_Abstract {
             $data['channel'] = $channel_id;
             $orders = array();
 
-            foreach($collection as $item){         
+			foreach($collection as $item){         
                 $order = array();
                 
-                $order['identity'] = array('email'=> $item->getCustomerEmail());
+				$order['identity'] = array('email'=> $item->getCustomerEmail());
                 
                 $billing_address = $item->getBillingAddress();
 
@@ -110,7 +119,6 @@ class Liana_CEMImport_Model_Order extends Mage_Core_Model_Abstract {
 
             $data['data'] = $orders;
         }
-
         return $data;
      }
 
