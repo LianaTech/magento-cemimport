@@ -1,6 +1,7 @@
 <?php
 class Liana_CEMImport_Model_Order extends Mage_Core_Model_Abstract {
-
+	protected $last_updated_at_time = null;
+	protected $last_item_id = null;
 
     public function getOrderCollectionByID($order_ids = array()){
         $collection = $this->getOrderCollection();
@@ -25,7 +26,7 @@ class Liana_CEMImport_Model_Order extends Mage_Core_Model_Abstract {
 
         //Only export 1000 records per time
         $collection->setPageSize(1000);
-        $collection->setCurPage(1);
+		$collection->setCurPage(1);
 
         /**
         * If this is not the 1st run, last_updated_at_time 
