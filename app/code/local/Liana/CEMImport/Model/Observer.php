@@ -39,8 +39,12 @@ class Liana_CEMImport_Model_Observer
             $restClient = Liana_CEMImport_Model_Observer::getInstance()->getRestClient();
 
             if(! empty($orderList)) {
-				$restClient->call('import', $orderList);
-				$model->updateLastRetrieved();
+				$res = $restClient->call('import', $orderList);
+				if ($res['succeed'] === true && ! empty($res['handle'])) {
+					$model->updateLastRetrieved();
+				} else {
+					Mage::Log('magento-cemimport: orders import to CEM failed, retrying on next run');
+				}
             }
         } catch( Exception $ex){
             Mage::Log("magento-cemimport:".$ex->getMessages());
@@ -51,10 +55,15 @@ class Liana_CEMImport_Model_Observer
         $model = new Liana_CEMImport_Model_Customer();
         $customerList = $model->getCustomerList($this->cem_channel);
         try{
-            $restClient = Liana_CEMImport_Model_Observer::getInstance()->getRestClient();
-            if(!empty($customerList)){
-                $restClient->call('import', $customerList);
-				$model->updateLastRetrieved();
+			$restClient = Liana_CEMImport_Model_Observer::getInstance()->getRestClient();
+
+            if(! empty($customerList)){
+				$res = $restClient->call('import', $customerList);
+				if ($res['succeed'] === true && ! empty($res['handle'])) {
+					$model->updateLastRetrieved();
+				} else {
+					Mage::Log('magento-cemimport: customers import to CEM failed, retrying on next run');
+				}
             }
         } catch( Exception $ex){
             Mage::Log("magento-cemimport:".$ex->getMessages());
