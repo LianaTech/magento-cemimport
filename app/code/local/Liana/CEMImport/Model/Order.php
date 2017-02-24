@@ -68,13 +68,13 @@ class Liana_CEMImport_Model_Order extends Mage_Core_Model_Abstract {
     /**
     *   Retrieve a order list from database and convert it into proper array structure
     */
-    public function getOrderList(){
+    public function getOrderList($channel = null){
         $collection = $this->getOrderCollection();
 
         $data = array();
 
         if(!empty($collection) && (intval($collection->getSize())>0)){
-            $channel_id = 'ecs';//ecs : ecommerce
+            $channel_id = empty($channel) ? 'ecs' : $channel;
            
             $data['channel'] = $channel_id;
             $orders = array();

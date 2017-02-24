@@ -3,7 +3,8 @@ class Liana_CEMImport_Model_Observer
 {
 
     protected static $_instance;
-    private $_restClient;
+	private $_restClient;
+	protected $cem_channel = null;
 
     public function __construct(){
         $api_user       = Mage::getStoreConfig('cemimport/settings/api_user');
@@ -11,6 +12,7 @@ class Liana_CEMImport_Model_Observer
         $api_url        = Mage::getStoreConfig('cemimport/settings/api_url');
 		$api_version    = Mage::getStoreConfig('cemimport/settings/api_version');
 		$api_realm		= Mage::getStoreConfig('cemimport/settings/api_realm');
+		$this->cem_channel	= Mage::getStoreConfig('cemimport/settings/cem_channel');
         
         $api_url = trim($api_url);
         $api_url = rtrim($api_url,"/");#remove slash at the end of url
@@ -32,7 +34,7 @@ class Liana_CEMImport_Model_Observer
 
     public function exportOrders(){
         $model = new Liana_CEMImport_Model_Order();
-        $orderList = $model->getOrderList();
+        $orderList = $model->getOrderList($this->cem_channel);
         try{
             $restClient = Liana_CEMImport_Model_Observer::getInstance()->getRestClient();
 
@@ -45,9 +47,9 @@ class Liana_CEMImport_Model_Observer
         }
     }
 
-    public function exportCustomers(){
+	public function exportCustomers(){
         $model = new Liana_CEMImport_Model_Customer();
-        $customerList = $model->getCustomerList();
+        $customerList = $model->getCustomerList($this->cem_channel);
         try{
             $restClient = Liana_CEMImport_Model_Observer::getInstance()->getRestClient();
             if(!empty($customerList)){
