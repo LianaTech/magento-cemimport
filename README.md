@@ -20,6 +20,7 @@ Usage
 	- API URL (e.g:http://t.lianacem.com, it does not need to contain /rest segment or version)
 	- API VERSION
 	- API REALM
+	- CEM Channel - id (in the URL of the channel in CEM) or systemname of the CEM channel (defaults to `ecs`, LianaCommerce)
 
   *Afterward click "Save config" to finnished this step (If when you open Liana CEM Import section and see the 404 error, you need to logout and login to Magento again).
   
@@ -32,7 +33,7 @@ OR
 ###Run importing process directly from command line
 
 You can also run the import process from command line by execute:
-php -f /shell/cemimport-cli.php
+php -f shell/cemimport-cli.php
 
 It will automatically export customers and orders to CEM once (maximum 1000 rows per time)
 
