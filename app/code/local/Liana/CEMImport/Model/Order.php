@@ -96,11 +96,13 @@ class Liana_CEMImport_Model_Order extends Mage_Core_Model_Abstract {
     			        'city'       => $billing_address->getCity()
                     )
                 );
-                
+				
+				$incrementId = $item->getIncrementId();	
      			$order['events'][] = array(
                     'verb' => 'order',
                     'items' => array(
-                        'id'  	            => $item->getIncrementId(),
+						'id'  	            => $incrementId,
+                        'order-id'  	    => $incrementId,
     			        'payment-method'    => $item->getPayment()->getMethodInstance()->getCode(),
     			        'delivery-method'   => $item->getShippingDescription(),
     			        'total-price'	    => $item->getSubtotal(),

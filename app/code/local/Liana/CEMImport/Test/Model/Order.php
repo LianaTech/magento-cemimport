@@ -45,6 +45,7 @@ class Liana_CEMImport_Test_Model_Order extends EcomDev_PHPUnit_Test_Case {
 				  'items' => 
 				  array (
 					'id' => '100000001',
+					'order-id' => '100000001',
 					'payment-method' => 'checkmo',
 					'delivery-method' => 'Flat Rate - Fixed',
 					'total-price' => '10.0000',
@@ -89,6 +90,7 @@ class Liana_CEMImport_Test_Model_Order extends EcomDev_PHPUnit_Test_Case {
 				  'items' => 
 				  array (
 					'id' => '100000002',
+					'order-id' => '100000002',
 					'payment-method' => 'checkmo',
 					'delivery-method' => 'Flat Rate - Fixed',
 					'total-price' => '30.0000',
@@ -133,6 +135,7 @@ class Liana_CEMImport_Test_Model_Order extends EcomDev_PHPUnit_Test_Case {
 				  'items' => 
 				  array (
 					'id' => '100000003',
+					'order-id' => '100000003',
 					'payment-method' => 'checkmo',
 					'delivery-method' => 'Flat Rate - Fixed',
 					'total-price' => '20.0000',
@@ -158,7 +161,7 @@ class Liana_CEMImport_Test_Model_Order extends EcomDev_PHPUnit_Test_Case {
 			  ),
 			),
 		  ),
-		));
+	  ));
 
         // Check that two json objects are equal or not
         $this->assertJsonStringEqualsJsonString(
